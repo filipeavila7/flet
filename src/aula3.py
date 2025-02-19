@@ -52,7 +52,9 @@ def main(page = ft.Page):
 
 
     def editar_tarefa(tarefa, checkbox):
-        ...
+        campo_edicao = ft.TextField(label=checkbox)
+        def salvar_edicao(e):
+            ...
 
         
 
