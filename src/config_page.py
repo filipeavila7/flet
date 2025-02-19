@@ -2,6 +2,9 @@ import flet as ft
 
 def main(page: ft.Page):
 
+
+    
+
     # Classe de texto em uma variável t
     t = ft.Text(  
         value='Olá Mundo',  # Texto
