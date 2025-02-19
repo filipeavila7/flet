@@ -17,18 +17,18 @@ def main(page = ft.Page):
         else:
             nova_tarefa.error_text = None
 
-            tarefa = ft.Row(
-
-                [
-                    ft.Checkbox(label=nova_tarefa.value), # criando uma checkbox q dentro tem uma label com a variavel nova_tarefa
-                    ft.IconButton(
-                        icon=ft.icons.DELETE_OUTLINED,
-                        tooltip='remover tarefa',
-                        on_click= lambda e, tarefa=tarefa: remover_tarefa(tarefa)
-                    )
-                ]
+            tarefa = ft.Row([])
+            checkbox = ft.Checkbox(label=nova_tarefa.value)
+            botao_remover = ft.IconButton(
+                icon=ft.icons.DELETE_OUTLINED,
+                tooltip="remover tarefa",
+                on_click= lambda e: remover_tarefa(tarefa)
             )
-            ft.add(tarefa) 
+
+            tarefa.controls.extend([checkbox, botao_remover])
+
+             
+            page.add(tarefa) 
             nova_tarefa.value = '' # deixar vazio qnd clicar
             nova_tarefa.focus() #dar um foco na label
             nova_tarefa.update() # atualizar
@@ -103,7 +103,7 @@ def main(page = ft.Page):
     page.add(ft.Row(  #numa linha so
         [
             txt_nome, 
-            ft.ElevatedButton('diga olá', on_click=saudacao), # botao vai chamar a funcao saudacao
+            ft.ElevatedButton('diga olá', on_click=saudacao, bgcolor=ft.colors.YELLOW_400, color=ft.colors.BLACK87), # botao vai chamar a funcao saudacao
             btn_tema 
         ]
     ))
