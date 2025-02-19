@@ -19,13 +19,23 @@ def main(page = ft.Page):
 
             tarefa = ft.Row([])
             checkbox = ft.Checkbox(label=nova_tarefa.value)
+
+
+            btn_editar = ft.IconButton(
+                icon=ft.icons.EDIT,
+                tooltip='editar tarefa',
+                on_click= lambda e: editar_tarefa(tarefa,checkbox)
+            )
+
+
+
             botao_remover = ft.IconButton(
                 icon=ft.icons.DELETE_OUTLINED,
                 tooltip="remover tarefa",
                 on_click= lambda e: remover_tarefa(tarefa)
             )
 
-            tarefa.controls.extend([checkbox, botao_remover])
+            tarefa.controls.extend([checkbox, botao_remover, btn_editar])
 
              
             page.add(tarefa) 
@@ -39,6 +49,10 @@ def main(page = ft.Page):
     def remover_tarefa(tarefa):
         page.controls.remove(tarefa)
         page.update()
+
+
+    def editar_tarefa(tarefa, checkbox):
+        ...
 
         
 
